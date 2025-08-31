@@ -4,7 +4,7 @@ import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.AudioCategory
 import com.twopiradrian.auraluna.domain.entities.AudioType
 
-interface AudiosRepositoryI {
+interface AudioRepositoryI {
 
     suspend fun getById(id: Int): Audio?
 

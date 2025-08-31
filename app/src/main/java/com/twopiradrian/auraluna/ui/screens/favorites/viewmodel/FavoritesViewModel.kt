@@ -2,10 +2,8 @@ package com.twopiradrian.auraluna.ui.screens.favorites.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.twopiradrian.auraluna.R
-import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.Favorite
-import com.twopiradrian.auraluna.infrastructure.repositories.FavoritesRepository
+import com.twopiradrian.auraluna.infrastructure.repositories.FavoriteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +11,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class FavoritesViewModel(
-    private val favoritesRepository: FavoritesRepository
+    private val favoritesRepository: FavoriteRepository
 ) : ViewModel() {
 
     private val _favorites = MutableStateFlow<List<Favorite>>(emptyList())

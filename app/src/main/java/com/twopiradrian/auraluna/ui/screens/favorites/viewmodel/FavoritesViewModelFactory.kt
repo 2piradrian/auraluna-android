@@ -2,10 +2,10 @@ package com.twopiradrian.auraluna.ui.screens.favorites.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.twopiradrian.auraluna.infrastructure.repositories.FavoritesRepository
+import com.twopiradrian.auraluna.infrastructure.repositories.FavoriteRepository
 
 class FavoritesViewModelFactory(
-    private val favoritesRepository: FavoritesRepository
+    private val favoritesRepository: FavoriteRepository
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

@@ -5,13 +5,13 @@ import com.twopiradrian.auraluna.data.json.model.AudioModel
 import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.AudioCategory
 import com.twopiradrian.auraluna.domain.entities.AudioType
-import com.twopiradrian.auraluna.domain.repositories.AudiosRepositoryI
+import com.twopiradrian.auraluna.domain.repositories.AudioRepositoryI
 import com.twopiradrian.auraluna.infrastructure.datasources.json.JsonAudioDatasource
 
-class AudiosRepository(
+class AudioRepository(
     private val audios: JsonAudioDatasource,
     private val mapper: AudioMapper
-): AudiosRepositoryI {
+): AudioRepositoryI {
 
     override suspend fun getById(id: Int): Audio? {
         try {
