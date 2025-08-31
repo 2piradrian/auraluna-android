@@ -13,7 +13,7 @@ class AudiosRepository(
     private val mapper: AudioMapper
 ): AudiosRepositoryI {
 
-    override fun getById(id: Int): Audio? {
+    override suspend fun getById(id: Int): Audio? {
         try {
             val model: AudioModel = this.audios.getById(id)
             return mapper.toDomain(model)
@@ -24,7 +24,7 @@ class AudiosRepository(
         }
     }
 
-    override fun getAll(): List<Audio> {
+    override suspend fun getAll(): List<Audio> {
         try {
             val models: List<AudioModel> = this.audios.getAll()
             return models.map { mapper.toDomain(it) }
@@ -36,7 +36,7 @@ class AudiosRepository(
 
     }
 
-    override fun getByCategories(categories: List<AudioCategory>): List<Audio> {
+    override suspend fun getByCategories(categories: List<AudioCategory>): List<Audio> {
         try {
             val models: List<AudioModel> = this.audios.getByCategories(categories.map { it.it })
             return models.map { mapper.toDomain(it) }
@@ -47,7 +47,7 @@ class AudiosRepository(
         }
     }
 
-    override fun getByType(type: AudioType): List<Audio> {
+    override suspend fun getByType(type: AudioType): List<Audio> {
         try {
             val models: List<AudioModel> = this.audios.getByType(type.it)
             return models.map { mapper.toDomain(it) }

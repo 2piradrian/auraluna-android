@@ -7,9 +7,11 @@ import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.AudioCategory
 import com.twopiradrian.auraluna.infrastructure.repositories.AudiosRepository
 import com.twopiradrian.auraluna.infrastructure.repositories.FavoritesRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeViewModel(
     private val favoritesRepository: FavoritesRepository,
@@ -24,13 +26,15 @@ class HomeViewModel(
 
     fun getAudios() {
         viewModelScope.launch {
-            if (_selectedCategories.value.isEmpty()) {
-                val audiosResult: List<Audio> = audiosRepository.getAll()
-                _audios.value = audiosResult
-            }
-            else {
-                val audiosResult: List<Audio> = audiosRepository.getByCategories(_selectedCategories.value)
-                _audios.value = audiosResult
+            withContext(Dispatchers.IO) {
+                if (_selectedCategories.value.isEmpty()) {
+                    val audiosResult: List<Audio> = audiosRepository.getAll()
+                    _audios.value = audiosResult
+                } else {
+                    val audiosResult: List<Audio> =
+                        audiosRepository.getByCategories(_selectedCategories.value)
+                    _audios.value = audiosResult
+                }
             }
         }
     }

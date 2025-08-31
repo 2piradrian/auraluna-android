@@ -6,12 +6,12 @@ import com.twopiradrian.auraluna.domain.entities.AudioType
 
 interface AudiosRepositoryI {
 
-    fun getById(id: Int): Audio?
+    suspend fun getById(id: Int): Audio?
 
-    fun getAll(): List<Audio>
+    suspend fun getAll(): List<Audio>
 
-    fun getByCategories(categories: List<AudioCategory>): List<Audio>
+    suspend fun getByCategories(categories: List<AudioCategory>): List<Audio>
 
-    fun getByType(type: AudioType): List<Audio>
+    suspend fun getByType(type: AudioType): List<Audio>
 
 }
