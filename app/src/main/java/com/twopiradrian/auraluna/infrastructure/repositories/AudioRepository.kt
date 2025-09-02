@@ -2,21 +2,21 @@ package com.twopiradrian.auraluna.infrastructure.repositories
 
 import com.twopiradrian.auraluna.data.json.mapper.AudioMapper
 import com.twopiradrian.auraluna.data.json.model.AudioModel
+import com.twopiradrian.auraluna.domain.datasources.AudioDatasourceI
 import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.AudioCategory
 import com.twopiradrian.auraluna.domain.entities.AudioType
 import com.twopiradrian.auraluna.domain.repositories.AudioRepositoryI
-import com.twopiradrian.auraluna.infrastructure.datasources.json.JsonAudioDatasource
 
 class AudioRepository(
-    private val audios: JsonAudioDatasource,
+    private val audios: AudioDatasourceI,
     private val mapper: AudioMapper
 ): AudioRepositoryI {
 
     override suspend fun getById(id: Int): Audio? {
         try {
-            val model: AudioModel = this.audios.getById(id)
-            return mapper.toDomain(model)
+            val model: AudioModel? = this.audios.getById(id)
+            return mapper.toDomain(model!!)
         }
         catch (e: Exception) {
             e.printStackTrace()
