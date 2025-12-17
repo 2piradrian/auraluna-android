@@ -12,6 +12,7 @@ import com.twopiradrian.auraluna.ui.components.molecules.FavoritesList
 fun FavoritesBody(
     favorites: List<Favorite>,
     toggleFavorite: (Favorite) -> Unit,
+    onFavoriteClick: (Favorite) -> Unit,
     modifier: Modifier
 ) {
     Column(
@@ -22,9 +23,7 @@ fun FavoritesBody(
         )
         FavoritesList(
             favorites = favorites,
-            onFavoriteClick = {
-
-            },
+            onFavoriteClick = onFavoriteClick,
             toggleFavorite = {
                 toggleFavorite(it)
             }

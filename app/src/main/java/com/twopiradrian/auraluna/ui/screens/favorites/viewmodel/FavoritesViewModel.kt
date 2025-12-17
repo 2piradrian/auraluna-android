@@ -2,7 +2,9 @@ package com.twopiradrian.auraluna.ui.screens.favorites.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.Favorite
+import com.twopiradrian.auraluna.infrastructure.repositories.AudioRepository
 import com.twopiradrian.auraluna.infrastructure.repositories.FavoriteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +13,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class FavoritesViewModel(
-    private val favoritesRepository: FavoriteRepository
+    private val favoritesRepository: FavoriteRepository,
+    private val audioRepository: AudioRepository
 ) : ViewModel() {
 
     private val _favorites = MutableStateFlow<List<Favorite>>(emptyList())
@@ -41,6 +44,12 @@ class FavoritesViewModel(
                     return@withContext
                 }
             }
+        }
+    }
+
+    suspend fun getAudio(audioId: Int): Audio? {
+        return withContext(Dispatchers.IO) {
+            audioRepository.getById(audioId)
         }
     }
 

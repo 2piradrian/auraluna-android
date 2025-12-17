@@ -34,7 +34,8 @@ class ViewModelProvider(
         return viewModel(
             modelClass = FavoritesViewModel::class.java,
             factory = FavoritesViewModelFactory(
-                appContainer.favoritesRepository
+                appContainer.favoritesRepository,
+                appContainer.audiosRepository
             ),
             viewModelStoreOwner = navBackStackEntry
         )
