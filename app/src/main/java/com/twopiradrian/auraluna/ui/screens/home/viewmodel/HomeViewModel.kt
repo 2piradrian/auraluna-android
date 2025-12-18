@@ -2,18 +2,19 @@ package com.twopiradrian.auraluna.ui.screens.home.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.twopiradrian.auraluna.R
 import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.AudioCategory
-import com.twopiradrian.auraluna.infrastructure.repositories.AudiosRepository
-import com.twopiradrian.auraluna.infrastructure.repositories.FavoritesRepository
+import com.twopiradrian.auraluna.infrastructure.repositories.AudioRepository
+import com.twopiradrian.auraluna.infrastructure.repositories.FavoriteRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeViewModel(
-    private val favoritesRepository: FavoritesRepository,
-    private val audiosRepository: AudiosRepository
+    private val favoritesRepository: FavoriteRepository,
+    private val audiosRepository: AudioRepository
 ) : ViewModel() {
 
     private val _audios = MutableStateFlow(emptyList<Audio>())
@@ -24,13 +25,15 @@ class HomeViewModel(
 
     fun getAudios() {
         viewModelScope.launch {
-            if (_selectedCategories.value.isEmpty()) {
-                val audiosResult: List<Audio> = audiosRepository.getAll()
-                _audios.value = audiosResult
-            }
-            else {
-                val audiosResult: List<Audio> = audiosRepository.getByCategories(_selectedCategories.value)
-                _audios.value = audiosResult
+            withContext(Dispatchers.IO) {
+                if (_selectedCategories.value.isEmpty()) {
+                    val audiosResult: List<Audio> = audiosRepository.getAll()
+                    _audios.value = audiosResult
+                } else {
+                    val audiosResult: List<Audio> =
+                        audiosRepository.getByCategories(_selectedCategories.value)
+                    _audios.value = audiosResult
+                }
             }
         }
     }

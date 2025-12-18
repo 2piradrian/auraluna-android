@@ -3,13 +3,13 @@ package com.twopiradrian.auraluna.infrastructure.repositories
 import com.twopiradrian.auraluna.data.room.mappers.FavoritesMapper
 import com.twopiradrian.auraluna.data.room.models.FavoriteModel
 import com.twopiradrian.auraluna.domain.entities.Favorite
-import com.twopiradrian.auraluna.domain.repositories.FavoritesRepositoryI
+import com.twopiradrian.auraluna.domain.repositories.FavoriteRepositoryI
 import com.twopiradrian.auraluna.infrastructure.datasources.room.RoomFavoritesDatasource
 
-class FavoritesRepository(
+class FavoriteRepository(
     private val favorites: RoomFavoritesDatasource,
     private val mapper: FavoritesMapper
-): FavoritesRepositoryI {
+): FavoriteRepositoryI {
 
     override suspend fun insert(favorite: Favorite) {
         try {

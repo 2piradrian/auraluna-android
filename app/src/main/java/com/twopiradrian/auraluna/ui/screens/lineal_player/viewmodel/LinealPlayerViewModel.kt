@@ -7,8 +7,8 @@ import androidx.media3.exoplayer.ExoPlayer
 import com.twopiradrian.auraluna.R
 import com.twopiradrian.auraluna.domain.entities.Audio
 import com.twopiradrian.auraluna.domain.entities.Favorite
-import com.twopiradrian.auraluna.infrastructure.repositories.AudiosRepository
-import com.twopiradrian.auraluna.infrastructure.repositories.FavoritesRepository
+import com.twopiradrian.auraluna.infrastructure.repositories.AudioRepository
+import com.twopiradrian.auraluna.infrastructure.repositories.FavoriteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class LinealPlayerViewModel(
-    private val favoritesRepository: FavoritesRepository,
-    private val audiosRepository: AudiosRepository
+    private val favoritesRepository: FavoriteRepository,
+    private val audiosRepository: AudioRepository
 ) : ViewModel() {
 
     private val _audio = MutableStateFlow<Audio?>(null)

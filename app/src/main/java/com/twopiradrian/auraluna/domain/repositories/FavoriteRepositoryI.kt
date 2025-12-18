@@ -2,7 +2,7 @@ package com.twopiradrian.auraluna.domain.repositories
 
 import com.twopiradrian.auraluna.domain.entities.Favorite
 
-interface FavoritesRepositoryI {
+interface FavoriteRepositoryI {
 
     suspend fun insert(favorite: Favorite)
 
