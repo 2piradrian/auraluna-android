@@ -29,9 +29,9 @@ class HomeViewModel(
                 if (_selectedCategories.value.isEmpty()) {
                     val audiosResult: List<Audio> = audiosRepository.getAll()
                     _audios.value = audiosResult
-                } else {
-                    val audiosResult: List<Audio> =
-                        audiosRepository.getByCategories(_selectedCategories.value)
+                }
+                else {
+                    val audiosResult: List<Audio> = audiosRepository.getByCategories(_selectedCategories.value)
                     _audios.value = audiosResult
                 }
             }
