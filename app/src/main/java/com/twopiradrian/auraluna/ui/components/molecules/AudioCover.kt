@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.twopiradrian.auraluna.domain.entities.Audio
 
 @Composable
@@ -41,8 +42,8 @@ fun AudioCover(
                     onClick()
                 }
         ) {
-            Image(
-                painter = painterResource(id = audio.coverResource),
+            AsyncImage(
+                model = audio.coverResource,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

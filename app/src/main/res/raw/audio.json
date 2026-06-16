@@ -7,21 +7,21 @@
     "coverResource": "cafe_con_leche_img",
     "type": "LOOP",
     "format": "SONG",
-    "categories": ["DISTRESS", "ANXIETY", "ANGER"],
+    "categories": ["STRESS"],
     "duration": "4:00",
     "times": [5, 10, 15]
   },
   {
     "id": 2,
-    "name": "Corazón y Estrés",
+    "name": "Corazón y estrés",
     "author": "Gabi Molina",
     "audioResource": "corazon_y_estres",
     "coverResource": "corazon_y_estres_img",
-    "type": "LOOP",
+    "type": "LINEAL",
     "format": "SONG",
-    "categories": ["DISTRESS", "ANXIETY", "STRESS"],
-    "duration": "1:00",
-    "times": [5, 10, 15]
+    "categories": ["ANXIETY", "STRESS"],
+    "duration": "1:19:00",
+    "times": [5, 10, 15, 30, 60]
   },
   {
     "id": 3,
@@ -29,10 +29,106 @@
     "author": "Gabi Molina",
     "audioResource": "lluvia",
     "coverResource": "lluvia_img",
-    "type": "LINEAL",
-    "format": "SOUND",
-    "categories": ["DISTRESS", "ANXIETY", "STRESS"],
+    "type": "LOOP",
+    "format": "SONG",
+    "categories": ["ANXIETY", "STRESS"],
     "duration": "0:30",
-    "times": [1, 2, 3]
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 4,
+    "name": "Café con leche",
+    "author": "Gabi Molina",
+    "audioResource": "cafe_con_leche",
+    "coverResource": "cafe_con_leche_img",
+    "type": "LOOP",
+    "format": "SONG",
+    "categories": ["ANGER"],
+    "duration": "4:00",
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 5,
+    "name": "Termino tu dia",
+    "author": "Gabi Molina",
+    "audioResource": "termino_tu_dia",
+    "coverResource": "termino_tu_dia_img",
+    "type": "LOOP",
+    "format": "SONG",
+    "categories": ["STRESS"],
+    "duration": "1:00",
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 6,
+    "name": "Naturaleza",
+    "author": "Gabi Molina",
+    "audioResource": "naturaleza",
+    "coverResource": "default_img",
+    "type": "LOOP",
+    "format": "SOUND",
+    "categories": ["HAPPINESS"],
+    "duration": "1:54",
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 7,
+    "name": "Agua",
+    "author": "Gabi Molina",
+    "audioResource": "agua",
+    "coverResource": "agua_img",
+    "type": "LOOP",
+    "format": "SOUND",
+    "categories": ["STRESS"],
+    "duration": "1:48",
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 8,
+    "name": "Corazón y estrés",
+    "author": "Gabi Molina",
+    "audioResource": "corazon_y_estres",
+    "coverResource": "corazon_y_estres_img",
+    "type": "LOOP",
+    "format": "SONG",
+    "categories": ["STRESS"],
+    "duration": "1:19:00",
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 9,
+    "name": "Raices en la tierra",
+    "author": "Gabi Molina",
+    "audioResource": "raices_en_la_tierra",
+    "coverResource": "raices_en_la_tierra_img",
+    "type": "LINEAL",
+    "format": "GUIDED",
+    "categories": ["STRESS"],
+    "duration": "0:00",
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 10,
+    "name": "El oceano Interior",
+    "author": "Gabi Molina",
+    "audioResource": "el_oceano_interior",
+    "coverResource": "el_oceano_interior_img",
+    "type": "LINEAL",
+    "format": "GUIDED",
+    "categories": ["STRESS"],
+    "duration": "4:00",
+    "times": [5, 10, 15, 30, 60]
+  },
+  {
+    "id": 11,
+    "name": "El espacio del corazon",
+    "author": "Gabi Molina",
+    "audioResource": "el_espacio_del_corazon",
+    "coverResource": "el_espacio_del_corazon_img",
+    "type": "LINEAL",
+    "format": "GUIDED",
+    "categories": ["HAPPINESS"],
+    "duration": "0:00",
+    "times": [5, 10, 15, 30, 60]
   }
 ]
